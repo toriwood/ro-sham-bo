@@ -1,0 +1,41 @@
+html, body, div.wrapper {
+	background-color: #729f98;
+}
+
+div.jumbotron {
+	background-color: #aa863a;
+}
+
+div {
+	font-family: "Shadows Into Light", Helvetica, Arial, sans-serif;
+	background-color: #729f98;
+	text-align: center;
+}	
+
+div.click {
+	padding-top: 20px;
+}
+
+.click, .instruction, .score{
+	margin: 20px;
+	display: none;
+}
+
+#startover {
+	display: none;
+}
+
+button.btn.btn-primary, button.btn.btn-primary:focus {
+	background-color: #283018;
+	border-color: #283018;
+}
+
+.player-score {
+	float:left;
+	padding-left: 20px;
+}
+
+.computer-score {
+	float: right;
+	padding-right: 20px;
+}

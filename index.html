@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Rock, Paper, Scissors</title>
+	<link rel="stylesheet" href="style.css">
+	<!-- Latest compiled and minified CSS & JS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	<link href='https://fonts.googleapis.com/css?family=Shadows+Into+Light' rel='stylesheet' type='text/css'>
+</head>
+<body>
+	
+	<div class="wrapper">
+		<div class="jumbotron">
+			<h1>Welcome to Rock, Paper, Scissors!</h1>
+			<p>Click the button below to start a new game.</p>
+			<button class="btn btn-primary" id="start">Start Game</button>
+			<button class="btn btn-primary" id="startover">Start Over</button>
+		</div>
+		
+		<div class="wrapper">
+			<div class="score player-score">
+				<h2>Player Score: <br>
+							0</h2>
+			</div>
+
+			<div class="score computer-score">
+				<h2>Computer Score: <br>
+							0</h2>
+			</div>
+		</div>
+
+		<div class="instruction">
+			<h1>Click on your selection below:</h1>
+		</div>
+
+		<div class="click">
+			<h1>Rock</h1>
+			<img src="images/rock.png" alt="rock" height="150px">
+		</div>
+	
+		<div class="click">
+			<h1>Paper</h1>
+			<img src="images/paper.png" alt="paper" height="150px">
+		</div>
+
+		<div class="click">
+			<h1>Scissors</h1>
+			<img src="images/scissors.png" alt="scissors" height="150px">
+		</div>
+
+	</div>
+	<script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+  <script src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+  <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+  <script src="rps.js"></script>
+</body>
+</html>
