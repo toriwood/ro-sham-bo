@@ -90,9 +90,10 @@ $('#startover').click(function() {
 			setTimeout(function() {
 				$('.instruction').html("<h3>Choose again to start the next round:</h3>");
 			}, 3000);
+			
 			gamesPlayed++;
 
-		} else if (gamesPlayed == numberOfGames) {
+	  if (gamesPlayed == numberOfGames) {
 			if (computerScore > playerScore) {
 				swal({ title: "You lose!",
 							   text: "The computer is smarter than you.",
@@ -113,4 +114,5 @@ $('#startover').click(function() {
 							 });
 			}
 		}
+	}
 });
