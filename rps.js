@@ -1,12 +1,17 @@
 	var choicesArray = ["rock", "paper", "scissors"];
 	var playerScore = 0;
 	var computerScore = 0;
+	var started = "no";
+	var numberOfGames = 3;
+	var gamesPlayed = 0;
 
 $('#start').click(function() {
 	$('.click, .instruction, .score').fadeIn();
 	$('.click').css("display", "inline-block");
 	$(this).css("display", "none");
 	$('#startover').css("display", "inline-block");
+	started = "yes";
+	numberOfGames = Number(prompt("How many games would you like to play? Best of:"));
 });
 
 $('#startover').click(function() {
@@ -19,46 +24,59 @@ $('#startover').click(function() {
 
 
 	$('.click').click( function() {
-		var playerChoice = "";
-		var computerChoice = choicesArray[Math.floor(Math.random() * choicesArray.length)];
-		var computerIndex = null;
-		var playerIndex = null;
-		var winner = "";
 
-		if (playerChoice === "") {
-			playerChoice = $(this).find('h1').text().toLowerCase();
-		} else {
-			alert("You've already made your selection.");
-		}
-		console.log(playerChoice);
-		$('.instruction').html("<h3>You selected " + playerChoice + ".</h3>");
-		$('.instruction').append("<h3>The computer selected " + computerChoice + ".</h3>");
+		if (started == "yes" && gamesPlayed < numberOfGames) {
+			var playerChoice = "";
+			var computerChoice = choicesArray[Math.floor(Math.random() * choicesArray.length)];
+			var computerIndex = null;
+			var playerIndex = null;
+			var winner = "";
 
-		computerIndex = choicesArray.indexOf(computerChoice);
-		playerIndex = choicesArray.indexOf(playerChoice);
-
-		console.log(computerIndex);
-		console.log(playerIndex);
-
-		winner = function() {
-			if (computerIndex - playerIndex == 1 || computerIndex - playerIndex == -2) {
-				$('.instruction').html("<h3>The computer wins!</h3>");
-				computerScore += 1;
-			} else if (computerIndex - playerIndex == 0) {
-				$('.instruction').html("<h3>It's a tie.</h3>");
+			if (playerChoice === "") {
+				playerChoice = $(this).find('h1').text().toLowerCase();
 			} else {
-				$('.instruction').html("<h3>You win!</h3>");
-				playerScore += 1;
+				alert("You've already made your selection.");
 			}
-			$('.computer-score').html("<h2>Computer Score: <br>" + computerScore + "</h2>");
-			$('.player-score').html("<h2>Player Score: <br>" + playerScore + "</h2>");
+			console.log(playerChoice);
+			$('.instruction').html("<h3>You selected " + playerChoice + ".</h3>");
+			$('.instruction').append("<h3>The computer selected " + computerChoice + ".</h3>");
+
+			computerIndex = choicesArray.indexOf(computerChoice);
+			playerIndex = choicesArray.indexOf(playerChoice);
+
+			console.log(computerIndex);
+			console.log(playerIndex);
+
+			winner = function() {
+				if (computerIndex - playerIndex == 1 || computerIndex - playerIndex == -2) {
+					$('.instruction').html("<h3>The computer wins!</h3>");
+					computerScore += 1;
+				} else if (computerIndex - playerIndex == 0) {
+					$('.instruction').html("<h3>It's a tie.</h3>");
+				} else {
+					$('.instruction').html("<h3>You win!</h3>");
+					playerScore += 1;
+				}
+				$('.computer-score').html("<h2>Computer Score: <br>" + computerScore + "</h2>");
+				$('.player-score').html("<h2>Player Score: <br>" + playerScore + "</h2>");
+			}
+
+			setTimeout(function() {
+				winner();
+			}, 2000);
+
+			setTimeout(function() {
+				$('.instruction').html("<h3>Choose again to start the next round:</h3>");
+			}, 3000);
+			gamesPlayed++;
+
+		} else if (gamesPlayed == numberOfGames) {
+			if (computerScore > playerScore) {
+				alert("You lose. The computer wins!");
+			} else if	(computerScore < playerScore) {
+					alert("You win! Congratulations!");
+			} else {
+				alert("You and the computer tied!");
+			}
 		}
-
-		setTimeout(function() {
-			winner();
-		}, 2000);
-
-		setTimeout(function() {
-			$('.instruction').html("<h3>Choose again to start the next round:</h3>");
-		}, 3000);
-	});
+});
