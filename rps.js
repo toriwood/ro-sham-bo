@@ -18,7 +18,7 @@ $('#startover').click(function() {
 });
 
 
-var game = function() {
+	$('.click').click( function() {
 		var playerChoice = "";
 		var computerChoice = choicesArray[Math.floor(Math.random() * choicesArray.length)];
 		var computerIndex = null;
@@ -61,13 +61,4 @@ var game = function() {
 		setTimeout(function() {
 			$('.instruction').html("<h3>Choose again to start the next round:</h3>");
 		}, 3000);
-	};
-
-var i = 1;
-var numberOfGames = prompt("How many games would you like to play. Best of:");
-
-while (i < numberOfGames) {
-	$('.click').click( 
-		game()
-		);
-};
+	});
