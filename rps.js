@@ -39,7 +39,7 @@ $('#startover').click(function() {
 	gamesPlayed = 0;
 	$('.player-score').html("<h2>Player Score: <br>" + playerScore + "</h2>");
 	$('.computer-score').html("<h2>Computer Score: <br>" + computerScore + "</h2>");
-	$('.instruction').html("<h1>Click on your selection below:</h1>");
+	$('.instruction').html("<h1>Click on your selection below:<br></h1>");
 	start();
 });
 
@@ -71,12 +71,12 @@ $('#startover').click(function() {
 
 			winner = function() {
 				if (computerIndex - playerIndex == 1 || computerIndex - playerIndex == -2) {
-					$('.instruction').html("<h3>The computer wins!</h3>");
+					$('.instruction').html("<h3>Round " + gamesPlayed +":</h3><h3>The computer wins!</h3>");
 					computerScore += 1;
 				} else if (computerIndex - playerIndex == 0) {
-					$('.instruction').html("<h3>It's a tie.</h3>");
+					$('.instruction').html("<h3>Round " + gamesPlayed +":</h3><h3>It's a tie.</h3>");
 				} else {
-					$('.instruction').html("<h3>You win!</h3>");
+					$('.instruction').html("<h3>Round " + gamesPlayed +":</h3><h3>You win!</h3>");
 					playerScore += 1;
 				}
 				$('.computer-score').html("<h2>Computer Score: <br>" + computerScore + "</h2>");
@@ -88,8 +88,8 @@ $('#startover').click(function() {
 			}, 2000);
 
 			setTimeout(function() {
-				$('.instruction').html("<h3>Choose again to start the next round:</h3>");
-			}, 3000);
+				$('.instruction').html("<h3>Round " + Number(gamesPlayed + 1) +":</h3><h3>Choose again to start the next round:</h3>");
+			}, 4000);
 			
 			gamesPlayed++;
 
