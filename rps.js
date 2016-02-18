@@ -88,11 +88,16 @@ $('#startover').click(function() {
 			}, 2000);
 
 			setTimeout(function() {
+			if (gamesPlayed + 1 <= numberOfGames) {
 				$('.instruction').html("<h3>Round " + Number(gamesPlayed + 1) +":</h3><h3>Choose again to start the next round:</h3>");
+			} else {
+				$('.instruction').html("<h1>Click the button above to play again!</h1>");
+			}
 			}, 4000);
 			
 			gamesPlayed++;
 
+	  setTimeout(function() {
 	  if (gamesPlayed == numberOfGames) {
 			if (computerScore > playerScore) {
 				swal({ title: "You lose!",
@@ -113,6 +118,6 @@ $('#startover').click(function() {
 							   imageSize: "400x400"
 							 });
 			}
-		}
+		}}, 4000);
 	}
 });
